@@ -4,21 +4,31 @@ $(document).ready(function($) {
 	$('#main-window *').fadeIn(500);
 
 	$('.practicebutton').mouseenter(function(){
-		$(this).css("background-color","#2FAA8F")
-		$(this).css("margin-left", "-30px")
-		$(this).css("width", "405px")
 
-		$("#conjugation-selectors, #game-explanation").css("opacity",1)
+		var gameName = $(this).html()
+			switch (gameName){
+				case "1 minute hero":
+				var description = "race to try and beat your high score in 60 seconds!"
+				break;
+				case "survival":
+				var description = "stay alive for as long as posible as the game gets faster!!"
+				break;
+				case "streaker":
+				var description = "take it slow and see how many you can get in a row!"
+				break;
+				case "adventure":
+				var description = "fight level up and increase your verb might!"
+				break;
+				default:
+				return "error"
+				break;
+			}
+		$("#game-explanation p").html(description);
+		$("#game-explanation").css("opacity",1)
 
-		$("#conjugation-selectors, #game-explanation").mouseover(function(event) {
-			$("#conjugation-selectors, #game-explanation").css("opacity",1)
+		$(".practicebutton").mouseleave(function(event) {
+			$("#game-explanation").css("opacity",0)
 
-		});
-		$("#conjugation-selectors, #game-explanation, .practicebutton").mouseleave(function(event) {
-			$("#conjugation-selectors, #game-explanation").css("opacity",0)
-			$(".practicebutton").css("background-color","#FFAD30")
-			$(".practicebutton").css("margin-left", "0px")
-			$(".practicebutton").css("width", "345px")
 		});
 
 	});

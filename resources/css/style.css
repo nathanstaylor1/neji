@@ -426,6 +426,14 @@ input[type=text] {
 	background-color: #FFAD30;
 	margin-top: -10px;
 	padding: 10px;
+	z-index: 5;
+}
+
+.practicebutton:hover{
+	background-color:#2FAA8F;
+	margin-left:-35px;
+	width:360px;
+	color: #fafafa;
 }
 
 
@@ -570,22 +578,18 @@ input[type=text] {
 
 #game-explanation{
 	height:194px;
-	width:300px;
+	width:350px;
 	background-color: #2FAA8F;
-	z-index: 50;
+	color:white;
+	z-index: 0;
 	position: absolute;
 	top:184px;
-	left:100px;
+	left:30px;
 	opacity:0;
+}
+#game-explanation p{
+	width: 300px;
+	margin:25px;
+	color: #fafafa;
 }
 
-#conjugation-selectors{
-	height:194px;
-	width:300px;
-	background-color: #2FAA8F;
-	z-index: 50;
-	position: absolute;
-	top:184px;
-	left:795px;
-	opacity:0;
-}
