@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel='stylesheet' href='resources/css/style.css'/>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type='text/javascript' src='resources/js/hiragana-learn.js'></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <h1 id = "neji"> <a href="index.html"><strong>neji</strong><span id="screwit">screw it~!</span></a></h1>
+        <a href="hiragana-lpmenu.html"><strong>hiragana</strong></a>
+        <a href="verb-lpmenu.html"><strong>verbs</strong></a>
+    </header>
+    
+    <!-- main window -->
+    <div class = "holder" id = "main-window">
+
+        <!-- left -->    
+        <div class = "holder half left" id = "hiragana-question">  
+    
+            <p>Change to <em>romaji:</em></p>
+            <p id = "hint">hint</p>
+            <p class = "hiragana popup" id = "question">(Japanese)</p>
+            <input type="text" name = "answer">
+      
+        </div><!--left close-->
+
+        <!-- right -->
+        <div class = "holder half right" id = 'hiragana-stats'> 
+            
+            <div class = "square left">
+                <p class = "small">Streak</p>
+                <p class = "number" id = "streak">0</p>
+            </div>
+            <div class = "square right">  
+                <p class = "small">Level</p>
+                <p class = "number" id = "level">1</p>
+            </div>
+    
+            <div class = " bonus bar outer bottom" id = "bonus-outer">
+              
+              <div class = "bonus bar inner" id = "bonus-inner"></div> 
+              <p class = "bar small">Multiplier:</p>
+              <p class = "bar number" id = "bonus"> x1</p>
+            </div>
+
+        </div><!--right close-->
+
+        <!-- bottom -->  
+        <div class = "holder full bottom">        
+            <div class = "level bar outer full">
+                <div class = "level bar inner"></div>
+            </div>
+        </div><!--bottom close-->
+
+        <!-- level up msg -->  
+        <p id = "levelupmsg">Level up~!<p>
+
+        <!-- level explanation -->  
+        <div id = "explanation">
+
+            <h3 id="explanation-heading">Welcome to level #</h3>
+            <p class = "small" id ="intro">intro<p>
+        
+            <table>
+                <tr class ="j"></tr>
+                <tr class ="r"></tr>
+            </table>
+
+            <p class = "button confirm" id = "gotit">Got it!</p>
+
+        </div><!--level explanation close-->
+
+    </div><!--mainwindow close-->
+
+    <!-- sidebar -->
+    <div class = "holder" id = "sidebar">
+        <p>I am the sidebar</p>
+    </div>
+    <div class = "holder" id = "sidebar-trigger-area">
+        <h3 id="options">options</h3>
+    </div> <!-- sidebar close -->
+
+    <div class = "holder" id="popup"/>
+</body>
+</html>

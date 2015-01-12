@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel='stylesheet' href='resources/css/style.css'/>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type='text/javascript' src='resources/js/verb-practice.js'></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <h1 id = "neji"> <a href="index.html"><strong>neji</strong><span id="screwit">screw it~!</span></a></h1>
+        <a href="hiragana-lpmenu.html"><strong>hiragana</strong></a>
+        <a href="verb-lpmenu.html"><strong>verbs</strong></a>
+    </header>
+    
+    <!-- main window -->
+    <div class = "holder" id = "main-window">
+    
+        <!-- left -->    
+        <div class = "holder half left" id = "verbs-question">  
+    
+            <p class = "small" id = "kana">kana</p>
+            <p class = "kanji" id = "question">(Japanese)</p>
+            <p class = "instruction" id = 'form-name'>Change to:</p>
+            <input type="text" name = "answer">
+            <p id = "hint">hint</p>
+          
+        </div><!--left close-->
+      
+        <!-- right -->
+        <div class = "holder half right" id = "verbs-stats"> 
+            
+            <div class = "rectangle left">    
+                <p class = "small stat">streak</p>
+                <p class = "number stat" id = "streak">0</p>            
+            </div>
+
+            <div class = "tallrectangle right">
+                <p class = "small stat">level</p>
+                <p class = "number stat" id = "level"><br>1</p>
+            </div>   
+
+            <div class = "rectangle left">
+                <p class = "small stat">multiplier</p>
+                <p class = "number stat" id = "multiplier">x1</p>
+            </div>
+
+
+            
+            <div class = "percentage bar outer bottom">
+                <div class = "percentage bar inner" id = "percentage-inner"></div> 
+                <p class = "bar small stat">percentage</p>
+                <p class = "bar number" id = "percentage">0%</p>
+            </div>
+     
+          
+        </div><!--right close-->
+
+                <!-- bottom -->  
+        <div class = "holder full bottom">        
+            <div class = "level bar outer full">
+                <div class = "level bar inner"></div>
+            </div>
+        </div><!--bottom close-->
+
+    </div><!--mainwindow close-->
+    
+<!-- sidebar -->
+    <div class = "holder" id = "sidebar">
+
+            <h4>Select verb forms to practice:</h4> 
+            <div class="holder" class="conjholder">
+                <input type="checkbox" name="te"checked> 
+                <p>て-Form </p>
+            </div>
+              
+            <div class="holder" class="conjholder">
+                <input type="checkbox" name="negative"> 
+                <p>ない-Form </p>
+            </div>
+            
+            <div class="holder" class="conjholder">
+                <input type="checkbox" name="masu"> 
+                <p>ます-Form </p>
+            </div>
+            
+            <div class="holder" class="conjholder">
+                <input type="checkbox" name="potential"> 
+                <p>Potential-Form </p>
+            </div>
+            
+            <div class="holder" class="conjholder">
+                <input type="checkbox" name="passive"> 
+                <p>Passive-Form </p>
+            </div>
+            
+            <div class="holder" class="conjholder">
+                <input type="checkbox" name="causative"> 
+                <p>Causative-Form </p>
+            </div>
+            
+            <div class="holder" class="conjholder">
+                <input type="checkbox" name="causativepassive"> 
+                <p>Causative-Passive-Form </p>
+            </div>
+
+    </div>
+    <div class = "holder" id = "sidebar-trigger-area">
+        <h3 id="options">options</h3>
+    </div> <!-- sidebar close -->
+</body>
+
+
+</html>
