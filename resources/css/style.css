@@ -37,14 +37,6 @@ body {
 }
 
 
-h1 a{
-	 font-size:6em;  
-	 font-family: sans-serif; 
-	 color:#333333;
-	 margin-left: 200px;
-	 position:fixed;
-}
-
 
 h3 {
 	 font-size:3em;
@@ -58,12 +50,14 @@ h4 {
 	 color:#333333;    
 }
 
-p {
+p, li{
 	font-family: sans-serif;
 	font-size: 2em;
 	color:#333333;
 }
-
+li{
+	font-size: 1em;
+}
 
 table {
      margin:auto;
@@ -84,31 +78,25 @@ header {
 	 margin: -20px 0px 0px -20px;
 	 background-color: #2FAA8F;
 	 border: solid #333333 5px;
-	 text-align: center;
 	 box-shadow: 7px 7px 23px -9px rgba(0,0,0,0.75);
+}
+header div{
+	display: inline-block;
+	position:relative;
+	width:15%;
+	text-align: center;
+	margin-top: 10px;
+}
+header div:first-child{
+	width:25%;
+	text-align: left;
+	margin-left: 20px;
+	margin-right: -50px;
 }
 
 header a{
-	font-size: 3em;
-	display:inline-block;
-	position:relative;
-	left:-150px;
-	margin-right: 70px;	
-	margin-top: 30px;
+	font-size: 3em;`
 }
-header > a{
-	top:10px;
-}
-
-
-header h1 {
-	 display:inline-block; 
-	 position:fixed;
-	 left: -40px;
-	 top:-45px;
-	 font-size: 2.5em;x
-}
-
 
 input[type=text] {
     width: 250px;
@@ -444,6 +432,10 @@ input[type=text] {
 /*_-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-_*/
 
 /*_-+=+-__-^-_-+=+-__-^-TEXT_-+=+-__-^-+=+-__-^-_*/
+#neji{
+	font-size: 7em;
+}
+
 
 #screwit {
 	 font-size:0.5em;  
@@ -591,5 +583,9 @@ input[type=text] {
 	width: 300px;
 	margin:25px;
 	color: #fafafa;
+}
+#vocab-list {
+	text-align: left;
+	margin-left: 200px;
 }
 

@@ -1,4 +1,10 @@
 $(document).ready(function($) {
+
+	if(window.location.search === ""){window.location.search = "teForm"}
+		for(i=0;i<4;i++){
+			var currentLink = $(".practicebutton").attr("href")
+			$(".half.right a").attr("href", currentLink)
+		}
   	
 	$('#main-window *').css('display', 'none');
 	$('#main-window *').fadeIn(500);
