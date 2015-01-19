@@ -168,10 +168,10 @@ input[type=text] {
 	margin-left:10px;
 	margin-top:5px;
 }
-.level.number{
+.bar.inner .number{
 	color: #fafafa;
-	float:right;
 	margin-top: 3px;
+	float:right;
 }
 
 
@@ -465,7 +465,14 @@ input[type=text] {
 .bullet{
 	height:10px;
 	width:10px;
-	background-color: #333333;
+	border-radius: 10px;
+	position:relative;
+}
+.you.bullet{
+	background-color: #EC173A;
+}
+.enemy.bullet{
+	background-color: #2FAA8F;
 }
 
 /*_-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-_
