@@ -382,6 +382,7 @@ function updateValues(){
 
     $("#stat-bar-number").html(statBar);
     $('#stat-bar-inner').css('width',statBarWidth);
+    $('.level.inner').css('width',levelBarWidth); 
 
     $("input[name=answer]").val("");
 
@@ -727,6 +728,7 @@ var multiplierLevel = 0;
 var gameTime = 0;
 var remainingTime = 60;
 var decreaseSpeed = 50;
+var recordStreak = 0;
 
 var statBarWidth = 0;
 var statBarMaxWidth = 350;
@@ -739,6 +741,28 @@ var stat2 = 0;
 var statBar = 0;
 var times = new Array()
 
+var level = 1;
+var attack = 10;
+var defence = 10;
+var exp = 0;
+var HP = 100;
+var maxHP = 100;
+var toNextLevel = new Array()
+    for(i=0;i<100;i++){toNextLevel[i]=i*100}
+
+var enemyNumber = 0;
+var currentEnemy = 1;
+var spawnRate = 5000;
+var damage = 0;
+function Enemy(enemyNumber){
+    this.maxHp = 5 + enemyNumber*5;
+    this.hp = this.maxHp
+    this.attack = 2;
+    this.exp = 50*enemyNumber;
+}
+
+var enemies = new Array()
+
 //declare game types
 function Game(name,stats){
     this.name = name;
@@ -750,7 +774,7 @@ var games = new Array()
 
 var oneminute = new Game("?oneminute",["score","streak","multiplier","percentage"])
 var survival = new Game("?survival",["time","streak","multiplier","percentage"])
-var streaker = new Game("?streaker",["streak","correct","total","percentage"])
+var streaker = new Game("?streaker",["streak","record","total","percentage"])
 var adventure = new Game("?adventure",["level","attack","defence","experience"])
 
 //_-_-_-__//_-_-_-__   -_-_-__//_-_-_-__   -_-_-__//_-_-_-__   -_-_-__//_-_-_-__    
@@ -839,21 +863,42 @@ function initializeGame(){
                     $("#ans" + i ).html("<p>" + answersArray[i] + "</p>");
         }
 
+
+
         break;
 
-        case "?streak":
+        case "?streaker":
+
         break;
 
         case "?adventure":
-        var level = 1;
-        var attack = 10;
-        var defence = 10;
-        var experience = 0;
-        var experienceNeeded = level*1000;
-        var HP = 1000;
-        var enemyHP = 100;
-        var critical = Math.floor((Math.random()/10))
+        $("input[name=answer]").css("display","none");
+        $('#answers').remove()
+        $("#form-name").after("<div class = 'holder' id='answers'/>")
+        for (i=-0;i<4;i++){
+            $("#answers").append("<div class = 'holder ansbutton' id='ans" + i + "'/>");
+        }
+
+        var answersArray = wrongAnswers(verbPosition,currentConjugation,3)
+        answersArray.push(verbs[verbPosition][currentConjugation]);
+        shuffleArray(answersArray);
+        for (i=-0;i<4;i++){
+                    $("#ans" + i ).html("<p>" + answersArray[i] + "</p>");
+        }
+
+        levelBarWidth = levelBarMaxWidth/2;
+        $(".level.bar.outer").css("background-color","#E0E4CC")
+        HP = 100;
+        $(".level.bar.number").html("HP:" + HP)
+        $(".level.bar.outer").before("<div id = 'battle-track' class = 'full'><div id = 'you' class = 'character'/></div>")
+        $(".level.bar.inner").after("<div id = 'enemy-hp' class = 'bar inner'><p class = 'number'></div>")
+        $("#enemy-hp").css("width",levelBarMaxWidth/2)
+        enemyNumber++
+        enemies[enemyNumber] = new Enemy(enemyNumber)
+        $("#battle-track").append("<div id = 'enemy" + enemyNumber + "' class = 'character enemy'></div>")
+        flashText($("#battle-track div:last-child"),100,"on")
         break;
+
     }
 
     updateValues()
@@ -900,14 +945,58 @@ percentage = Math.floor(correctCount/totalCount*100)
             }
         break;
 
-        case "?streak":
+        case "?streaker":
+            if (streak >= recordStreak){recordStreak = streak}
+
+            statMain = streak
+            stat1 = recordStreak
+            stat2 = totalCount
+            statBar = percentage + "%"
+            statBarWidth = percentage*statBarMaxWidth/100
         break;
 
         case "?adventure":
+            for (i=1;i<=enemyNumber;i++){
+                damage += enemies[i].attack;
+            }
+            if(correct){
+                enemies[currentEnemy].hp -= attack;
+                    if(enemies[currentEnemy].hp <= 0){
+                        exp += enemies[currentEnemy].exp;
+                        $("#enemy" + currentEnemy).fadeOut(500);
+                        currentEnemy++;
+                    }
+                HP -= Math.floor(damage/defence);
+                if (exp >= toNextLevel[level]){
+                    exp -= toNextLevel[level]
+                    level++
+                    flashText($("#stat-main p"),100,"on")
+                    attack += Math.floor(streak/correctCount*attack)
+                    defence += Math.floor(correctCount/totalCount*defence/streak)
+                    maxHP += correctCount*5;
+                    HP = maxHP;
+                }
+            } else {
+                HP -= Math.floor(damage/defence*2);
+                if (HP<=0){endGame()}
+            }
 
+            statMain = level
+            stat1 = attack
+            stat2 = defence
+            statBar = exp
+            statBarWidth = exp/toNextLevel[level]*statBarMaxWidth;
+            levelBarWidth = HP/maxHP*levelBarMaxWidth/2;
+            $(".level.bar.number").html("HP:" + HP)
+
+            var answersArray = wrongAnswers(verbPosition,currentConjugation,3)
+            answersArray.push(verbs[verbPosition][currentConjugation]);
+            shuffleArray(answersArray);
+            for (i=-0;i<4;i++){
+                        $("#ans" + i ).html("<p>" + answersArray[i] + "</p>");
+            }
         break;
     }
-
 
     updateValues()
 
@@ -938,12 +1027,17 @@ function endGame(){
         }
     break;
 
-    case "?streak":
+    case "?streaker":
 
     break;
 
     case "?adventure":
-
+            for(i=0;i<times.length;i++){clearInterval(times[i])}
+            $(".level.bar.outer").fadeOut(500)
+            $("#try-again").fadeIn(500);
+            $("#try-again").click(function(){
+                initializeGame();
+            });
     break;
 }
 
