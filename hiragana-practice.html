@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel='stylesheet' href='resources/css/style.css'/>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src='resources/js/jquery.csv-0.71.min.js'></script>
     <script type='text/javascript' src='resources/js/hiragana-practice.js'></script>
 </head>
 
@@ -21,40 +22,38 @@
     <div class = "holder" id = "main-window">
     
         <!-- left -->    
-        <div class = "holder half left" id = "verbs-question">  
+        <div class = "holder half left" id = "hiragana-question">  
     
-            <p class = "small" id = "kana">kana</p>
-            <p class = "kanji" id = "question">(Japanese)</p>
-            <p class = "instruction" id = 'form-name'>Change to:</p>
-            <input type="text" name = "answer">
+            <p>Change to <em>romaji:</em></p>
             <p id = "hint">hint</p>
+            <p class = "hiragana popup" id = "question">(Japanese)</p>
+            <input type="text" name = "answer">
+            <p class = "button confirm" id = "try-again">Try again?</p>
           
         </div><!--left close-->
       
         <!-- right -->
-        <div class = "holder half right" id = "verbs-stats"> 
+        <div class = "holder half right" id = "practice-stats"> 
             
-            <div class = "rectangle left">    
+            <div class = "rectangle left" id="stat1">    
                 <p class = "small stat">streak</p>
                 <p class = "number stat" id = "streak">0</p>            
             </div>
 
-            <div class = "tallrectangle right">
+            <div class = "tallrectangle right" id="stat-main">
                 <p class = "small stat">level</p>
                 <p class = "number stat" id = "level"><br>1</p>
             </div>   
 
-            <div class = "rectangle left">
+            <div class = "rectangle left" id="stat2">
                 <p class = "small stat">multiplier</p>
                 <p class = "number stat" id = "multiplier">x1</p>
             </div>
-
-
             
-            <div class = "percentage bar outer bottom">
-                <div class = "percentage bar inner" id = "percentage-inner"></div> 
-                <p class = "bar small stat">percentage</p>
-                <p class = "bar number" id = "percentage">0%</p>
+            <div class = "statbar bar outer bottom" id="#stat-bar">
+                <div class = "statbar bar inner" id = "stat-bar-inner"></div> 
+                <p class = "bar small stat">farts</p>
+                <p class = "bar number" id = "stat-bar-number">0%</p>
             </div>
      
           
@@ -63,7 +62,8 @@
                 <!-- bottom -->  
         <div class = "holder full bottom">        
             <div class = "level bar outer full">
-                <div class = "level bar inner"></div>
+                <div class = "level bar inner"><p class = "level bar number"></p></div>
+                
             </div>
         </div><!--bottom close-->
 
@@ -71,11 +71,22 @@
     
 <!-- sidebar -->
     <div class = "holder" id = "sidebar">
-    <p>I am the sidebar</p>
-    </div>
+    
+       <!-- <div id="content"><h3>content</h3></div>
+            <div class = "sub num7" id="causativePassiveForm"><p><strong>causative-passive-form</strong></p></div>
+            <div class = "sub num6" id="causativeForm"><p><strong>causative-form</strong></p></div>
+            <div class = "sub num5" id="passiveForm"><p><strong>passive-form</strong></p></div>
+            <div class = "sub num4" id="potentialForm"><p><strong>potential-form</strong></p></div>
+            <div class = "sub num3" id="masuForm"><p><strong>ます-form</strong></p></div>
+            <div class = "sub num2" id="negativeForm"><p><strong>ない-form</strong></p></div>
+            <div class = "sub num1" id="teForm"><p><strong>て-form</strong></p></div>
+
+    </div> -->
     <div class = "holder" id = "sidebar-trigger-area">
         <h3 id="options">options</h3>
     </div> <!-- sidebar close -->
+
+    <div class = "holder" id="popup"></div>
 </body>
 
 

@@ -138,6 +138,16 @@ input[type=text] {
 
 /*_-+=+-__-^-_-+=+-__-^-TEXT_-+=+-__-^-+=+-__-^-_*/
 
+.strokeme
+{
+    color: white;
+    text-shadow:
+    -2px -1px 0 #000,
+    1px -2px 0 #000,
+    -1px 2px 0 #000,
+    2px 1px 0 #000;  
+}
+
 .small{
 	font-size: 1.5em;
 }
@@ -146,6 +156,7 @@ input[type=text] {
 	font-size: 6em;
 	position:relative;
 	top:-50px;
+	margin-bottom: -25px;
 }
 
 .kanji {
@@ -274,7 +285,9 @@ input[type=text] {
 		border: 1px #FFF1CB solid;
 }
 
-
+.damage{
+		position:relative;
+}
 /*_-+=+-__-^-_-+=+-__-^-DIVS_-+=+-__-^-+=+-__-^-_*/
 
 .holder{
@@ -531,7 +544,7 @@ input[type=text] {
 	margin-top: -5px;
 }
 
-#verbs-stats .number{
+#practice-stats .number{
 	margin-left: -50px;
 }
 

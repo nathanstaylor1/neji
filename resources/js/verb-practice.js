@@ -905,6 +905,8 @@ function initializeGame(){
             if(Math.floor(Math.random()*3*percentage)>=1){
                 $(".enemy.character").append("<div class = 'bullet enemy'/>")
                 $(".bullet").animate({left:'-=730'},1000,"linear",function(){
+                    $("#you").append("<div class = 'damage'><p class = 'strokeme small'>" + Math.floor(enemies[enemyNumber].attack/defence) + "</p></div>")
+                    $(".damage").animate({top:'-=50'},800,"linear",function(){this.remove()})
                     this.remove()
                     HP -= Math.floor(enemies[enemyNumber].attack/defence);
                     flashText($("#you"),100,"on");
@@ -982,6 +984,8 @@ percentage = Math.floor(correctCount/totalCount*100)
                 //bullet animation
                 $("#you").append("<div class = 'bullet you'/>")
                 $(".bullet").animate({left:'+=720'},1000,"linear",function(){
+                    $(".enemy.character").append("<div class = 'damage'><p class = 'strokeme small'>" + attack + "</p></div>")
+                    $(".damage").animate({top:'-=50'},800,"linear",function(){this.remove()})
                     this.remove()
                     flashText($(".enemy.character"),100,"on")
                     enemies[enemyNumber].hp -= attack;
@@ -1017,6 +1021,8 @@ percentage = Math.floor(correctCount/totalCount*100)
             } else {
                 $(".enemy.character").append("<div class = 'bullet enemy'/>")
                 $(".bullet").animate({left:'-=730'},1000,"linear",function(){
+                    $("#you").append("<div class = 'damage'><p class = 'strokeme small'>" + Math.floor(enemies[enemyNumber].attack/defence) + "</p></div>")
+                    $(".damage").animate({top:'-=50'},800,"linear",function(){this.remove()})
                     this.remove()
                     HP -= Math.floor(enemies[enemyNumber].attack/defence);
                     flashText($("#you"),100,"on");
