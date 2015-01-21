@@ -14,7 +14,6 @@
 # sidebar: #E0E4CC;
 # */
 
-/*
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -32,10 +31,9 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
 	vertical-align: baseline;
 }
-*/
+
 
 
 /*_-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-__-+=+-__-^-_
@@ -65,7 +63,9 @@ body {
 h3 {
 	 font-size:3em;
 	 font-family: sans-serif;
-	 color:#333333;    
+	 color:#333333; 
+	 margin-top: 20px;
+	 margin-bottom: 20px;   
 }
 
 h4 {
@@ -99,7 +99,7 @@ header {
 	 width:110%;
 	 float:left; 
 	 position:fixed;
-	 margin: -20px 0px 0px -20px;
+	 margin: -10px 0px 0px -10px;
 	 background-color: #2FAA8F;
 	 border: solid #333333 5px;
 	 box-shadow: 7px 7px 23px -9px rgba(0,0,0,0.75);
@@ -156,7 +156,6 @@ input[type=text] {
 	font-size: 6em;
 	position:relative;
 	top:-50px;
-	margin-bottom: -25px;
 }
 
 .kanji {
@@ -205,6 +204,9 @@ input[type=text] {
 	float:right;
 	background-color: #fafafa
 }
+.sub p{
+	margin-top: 25px;
+}
 .sub:hover{
 	background-color: #E0E4CC;
 	color:#fafafa;
@@ -235,7 +237,7 @@ input[type=text] {
 	 color:#333333; 
 	 display: inline-block;
 	 position: relative;
-	 top:-13px;
+	 top:7px;
 	 left:5px;
 	 line-height: 1.5em;
 }
@@ -260,7 +262,7 @@ input[type=text] {
 	 color:#333333; 
 	 display: inline-block;
 	 position: relative;
-	 top:-40px;
+	 top:-10px;
 	 left:5px;
 	 border-top: 1px solid #333333;
 	 padding-top: 3px;
@@ -451,10 +453,17 @@ input[type=text] {
 }
 .practicebutton{
 	background-color: #FFAD30;
-	margin-top: -10px;
+	margin: 10px 0px 10px 0px;
 	padding: 10px;
 	z-index: 5;
+	position:relative;
 }
+
+div .practicebutton:first-child{
+	top:20px;
+}
+
+
 
 .practicebutton:hover{
 	background-color:#2FAA8F;
@@ -514,7 +523,6 @@ input[type=text] {
 }
 
 #kana {
-	position:relative;
 	top:40px;
 	opacity:0;
 }
@@ -526,9 +534,11 @@ input[type=text] {
 
 #hiragana-question input{
 	position:relative;
-	top:-70px;
 }
-
+#romaji{
+	margin-top: 20px;
+	margin-bottom:70px;
+}
 
 
 #levelupmsg{
@@ -554,7 +564,13 @@ input[type=text] {
 	background-color:#FFAD30; 
 }
 
+#question.kanji{
+	margin: 50px 0px 50px 0px;
+}
 
+#form-name{
+	margin:0px 0px 20px 0px;
+}
 
 
 /*_-+=+-__-^-_-+=+-__-^-DIVS_-+=+-__-^-+=+-__-^-_*/
@@ -667,4 +683,9 @@ input[type=text] {
 	height: 50px;
 	display: inline-block;
 	float:right;
+}
+
+#explanation table{
+	margin-top:30px;
+	margin-bottom: 30px;
 }

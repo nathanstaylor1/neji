@@ -334,8 +334,8 @@ function popupManager(){
         }
     },500) 
 
-
     $(".popup").mouseenter(function(){
+            popupData($(this))
             $(document).mousemove( function(e) {
                 mouseX = e.pageX; 
                 mouseY = e.pageY;
@@ -350,14 +350,13 @@ function popupManager(){
     });   
 }
 
-function popupData(){
-        //var k = object.html()
-        //var output = "<p class = 'pop-char'>" + k +
-        //             "</p><p class = 'pop-text'> Pronunciation: "+ hira[k][0] + hira[k][1]
-        //             + "<br> sound: " + hira[k][2] + "</p><p class = 'pop-long'>"
-          //          + hira[k][3] + "</p>"
-        //$("#popup").html(output)  
-
+function popupData(object){
+        var k = currentKeta
+        var output = "<p class = 'pop-char'>" + k +
+                     "</p><p class = 'pop-text'> Pronunciation: "+ hira[k][0] + hira[k][1]
+                     + "<br> sound: " + hira[k][2] + "</p><p class = 'pop-long'>"
+                    + hira[k][3] + "</p>"
+        $("#popup").html(output)        
 }
 
 function wrongAnswers(verb,conjugation,number){
